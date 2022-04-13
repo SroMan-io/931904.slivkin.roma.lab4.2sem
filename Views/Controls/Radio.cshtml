@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Radio";
+    <h2 span style = "margin: 15px; margin-left:0">Radio</h2>
+
+     @if ( ViewData["Method"] != "Get")
+    {       
+        <p span style = "margin-left:150px;"><b>Month</b>⠀⠀@ViewData["Text"]</p>   
+    }
+
+    else 
+    {      
+        @using (Html.BeginForm())
+        {                     
+            <b>Month</b><br/>
+            @Html.RadioButton("month", "January", true)
+            <span>January</span><br/>
+            @Html.RadioButton("month", "February")
+            <span>February</span> <br/>
+            @Html.RadioButton("month", "March")
+            <span>March</span><br/>
+            @Html.RadioButton("month", "April")
+            <span>April</span><br/>
+            @Html.RadioButton("month", "May")
+            <span>May</span><br/>
+            @Html.RadioButton("month", "June")
+            <span>June</span><br/>
+            @Html.RadioButton("month", "July")
+            <span>July</span><br/>
+            @Html.RadioButton("month", "August")
+            <span>August</span><br/>
+            @Html.RadioButton("month", "September")
+            <span>September</span><br/>
+            @Html.RadioButton("month", "October")
+            <span>October</span><br/>
+            @Html.RadioButton("month", "November")
+            <span>November</span><br/>
+            @Html.RadioButton("month", "December")
+            <span>December</span><br/>
+            <br/>          
+            <input type="submit" value="Submit" name="Action"/>                     
+        }
+    }
+}

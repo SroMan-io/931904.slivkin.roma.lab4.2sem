@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Drop-down List";
+    <h2 span style = "margin: 15px; margin-left:0">Drop-down List</h2>
+   
+     @if ( ViewData["Method"] != "Get")
+    {       
+        <p span style = "margin-left:150px;"><b>Month</b>⠀⠀@ViewData["Text"]</p>      
+    }
+
+    else 
+    {      
+        @using (Html.BeginForm())
+        {                    
+            <label><b>Month</b></label><br/>  
+            @Html.DropDownList("month", new SelectList(new string[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }))    <br/><br/>      
+           <input type="submit" value="Submit" name="Action"/>                       
+        }
+    }
+}

@@ -1,0 +1,81 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model WebApplication1.Models.UsersInfo
+@{
+    <h1 span style = "margin:20px; margin-left:-20px">Sign up</h1>
+
+    ViewData["Title"] = "SignUp";
+     
+        @if (ViewData["SignUpStep"] == "1")
+        {
+        @using (Html.BeginForm()) {
+                      
+            <div>
+            <b><label asp-for="FName"></label></b> <br/>
+            <input type="text" asp-for="FName" />           
+            <span asp-validation-for="FName" /> 
+            </div><br/>
+
+            <div>
+            <b><label asp-for="LName"></label></b><br />
+            <input type="text" asp-for="LName" />           
+            <span asp-validation-for="LName" />
+            </div>
+            <br/> 
+
+             <div>
+            <label><b>Birhday</b></label><br/>
+            @Html.DropDownList("days", ViewBag.Days as SelectList)
+            @Html.DropDownList("month", new SelectList(new string[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }))
+            @Html.DropDownList("years", ViewBag.Years as SelectList)<br/><br/>
+             </div>
+              
+            <div> 
+            <b><label asp-for="Gender"></label></b><br />
+            <input type="radio" name="Gender"  value="Male" asp-for="Gender"/>
+            <span>Male</span><br/>
+            <input type="radio" name="Gender"  value="Female" asp-for="Gender"/>
+            <span>Female</span><br/>
+            <span asp-validation-for="Gender" />
+           </div>        
+          
+            <br/>
+           <div> <input span style = "background-color: blue; color:white;" type="submit" value="Sign up" name="Action"/> </div>  
+        }
+    }
+     else 
+    {      
+        @using (Html.BeginForm("SignUpCredentials", "Mockups", FormMethod.Post)){
+            
+            <div>
+            <b><label asp-for="EMail"></label></b><br />
+            <input type="text" asp-for=" EMail" />
+            <span asp-validation-for="EMail" />
+            </div>
+            <br/>
+            <div>
+             <b><label asp-for="Password"></label></b><br />
+            <input type="password" asp-for="Password" />
+            <span asp-validation-for="Password" />
+            </div>
+            <br/> 
+            <div>
+            <b> <label asp-for="PasswordConfirm"></label></b><br />
+            <input type="password" asp-for="PasswordConfirm" />
+            <span asp-validation-for="PasswordConfirm" />
+            </div>
+            <br/>
+             
+             <div>@Html.CheckBox("Remember", false) Remember?</div><br/>              
+             <div><input span style = "background-color: blue; color:white;" type="submit" value="Complete sign up" name="Action"/> </div> <br/>
+             <div>@ViewData["InvalidDate"]</div>           
+        } 
+    }    
+}
+ @section scripts{
+ 
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript" src="~/lib/jquery-validation/src/localization/messages_ru.js"></script>
+ }

@@ -1,0 +1,13 @@
+﻿@{ViewData["Title"] = "Home Page";}
+	
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>*@
+ <h2 span style = "margin: 15px; margin-left:0">Multi-staged forms</h2>
+ <ul>        
+    <li> <a span style ="text-decoration: none;" asp-controller="Mockups" asp-action="Reset">Password Reset</a></li>  
+    <li> <a span style ="text-decoration: none;" asp-controller="Mockups" asp-action="SignUp">Sign Up</a></li>  
+ </ul>
+ <br/>
+ <h4>@ViewData["Reset"]</h4>

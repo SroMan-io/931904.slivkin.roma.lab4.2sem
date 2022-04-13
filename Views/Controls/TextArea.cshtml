@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Text Area";
+    <h2 span style = "margin: 15px; margin-left:0">Text Area</h2>
+
+      @if ( ViewData["Method"] != "Get")
+    {       
+        <p span style = "margin-left:150px;"><b>Text</b>⠀⠀@ViewData["Text"]</p>  
+    }
+
+    else 
+    {      
+        @using (Html.BeginForm())
+        {                    
+           <label><b>Text</b></label><br/>  
+            @Html.TextArea("text", "", 5, 50, null) <br/><br/>     
+           <input type="submit" value="Submit" name="Action"/>                      
+        }
+    }
+}
